@@ -1,4 +1,4 @@
-# Alpine.js Developer Tools
+# Alpine.js Inspector
 
 A Chrome DevTools extension for debugging Alpine.js V3 applications.
 
@@ -18,7 +18,9 @@ A Chrome DevTools extension for debugging Alpine.js V3 applications.
 
 ### From latest GitHub release
 
-1. TODO
+1. See the [latest release](https://github.com/jtolj/alpinejs-inspector/releases/latest)
+2. Download alpinejs-inspector.zip
+3. Unzip and load the folder as an unpacked extension (see [instructions](https://developer.chrome.com/docs/extensions/get_started#unpacked))
 
 ### From source
 

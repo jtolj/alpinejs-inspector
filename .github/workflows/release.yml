@@ -1,0 +1,55 @@
+name: Build and Package Extension
+
+on:
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build extension
+        run: bun run build
+
+      - name: Create ZIP file
+        run: |
+          cd dist
+          zip -r ../alpinejs-inspector.zip ./*
+          cd ..
+
+      - name: Upload extension to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: alpinejs-inspector.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate extension stats
+        run: |
+          echo "SHA256 checksum:" > release_notes.txt
+          sha256sum alpinejs-inspector.zip >> release_notes.txt
+          echo "" >> release_notes.txt
+          echo "File size:" >> release_notes.txt
+          ls -lh alpinejs-inspector.zip | awk '{print $5}' >> release_notes.txt
+
+      - name: Append stats to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: release_notes.txt
+          append_body: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
