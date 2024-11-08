@@ -2,6 +2,8 @@
 
 A Chrome DevTools extension for debugging Alpine.js V3 applications.
 
+![Screenshot](./assets/screenshot.png)
+
 ## Features
 
 - 🔍 Inspect Alpine.js component state
