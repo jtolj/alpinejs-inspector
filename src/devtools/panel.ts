@@ -14,11 +14,6 @@ const start = () => {
             files: ["/messageProxy.js"],
             world: "ISOLATED",
           })
-          .then(() =>
-            chrome.devtools.inspectedWindow.eval(
-              "console.log('loaded content script')"
-            )
-          )
           .catch((err) =>
             chrome.devtools.inspectedWindow.eval(
               `console.error(${err.message})`

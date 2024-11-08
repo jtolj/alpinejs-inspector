@@ -9,7 +9,6 @@ export default function deepClone(obj: any): { [key: string]: any } {
     stack: any
   ): any => {
     if (typeof value === "function") {
-      console.log("function", key, beautify(value.toString()));
       return beautify(value.toString());
     }
     return undefined;
