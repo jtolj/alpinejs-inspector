@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "AlpineJS Inspector",
+  "description": "An Developer Tools extension for Alpine.js v3.",
+  "version": "0.0.1",
+  "icons": {
+    "16": "assets/16.png",
+    "48": "assets/48.png",
+    "128": "assets/128.png"
+  },
+  "action": {
+    "default_title": "AlpineJS Inspector",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/16.png",
+      "48": "assets/48.png",
+      "128": "assets/128.png"
+    }
+  },
+  "devtools_page": "devtools/background.html",
+  "permissions": [
+   "scripting"
+  ],
+  "host_permissions": ["https://*/*", "http://*/*"]
+}
