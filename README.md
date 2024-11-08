@@ -50,3 +50,7 @@ bun run dev
 # Build for production
 bun run build
 ```
+
+## Credits
+
+Heavily inspired by the excellent [Alpine.js DevTools extension](https://github.com/alpine-collective/alpinejs-devtools)
