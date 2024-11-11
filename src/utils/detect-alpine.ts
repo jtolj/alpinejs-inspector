@@ -1,6 +1,7 @@
 declare global {
   interface Window {
     Alpine?: {
+      nextTick(arg0: () => void): unknown;
       version: string;
       effect: (fn: Function) => void;
     };

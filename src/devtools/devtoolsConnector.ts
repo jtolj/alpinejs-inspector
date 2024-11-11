@@ -146,26 +146,28 @@ import beautify from "../utils/beautify";
           return;
         }
 
-        for (const key in componentData) {
-          const currentState =
-            State.components[rootEl.__alpineDeveloperTools!.id].state;
-          if (
-            // This is a new key
-            !currentState.hasOwnProperty(key) ||
-            // or the value has changed
-            currentState[key] !== componentData[key]
-          ) {
-            State.components[rootEl.__alpineDeveloperTools!.id] =
-              getComponentDetails(rootEl);
-            return sendToDevTools({
-              type: "updateComponent",
-              data: {
-                id: rootEl.__alpineDeveloperTools!.id,
-                value: State.components[rootEl.__alpineDeveloperTools!.id],
-              },
-            });
+        window.Alpine!.nextTick(() => {
+          for (const key in componentData) {
+            const currentState =
+              State.components[rootEl.__alpineDeveloperTools!.id].state;
+            if (
+              // This is a new key
+              !currentState.hasOwnProperty(key) ||
+              // or the value has changed
+              currentState[key] !== componentData[key]
+            ) {
+              State.components[rootEl.__alpineDeveloperTools!.id] =
+                getComponentDetails(rootEl);
+              return sendToDevTools({
+                type: "updateComponent",
+                data: {
+                  id: rootEl.__alpineDeveloperTools!.id,
+                  value: State.components[rootEl.__alpineDeveloperTools!.id],
+                },
+              });
+            }
           }
-        }
+        });
       });
     });
 
