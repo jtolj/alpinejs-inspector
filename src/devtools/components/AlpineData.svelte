@@ -5,7 +5,9 @@
 
 <div class={classes || ""}>
   <span class="text-blue-300">{key}</span>
-  {#if typeof value === "object"}
+  {#if Array.isArray(value)}
+    <pre class="text-orange-300">[{value.join(", ")}]</pre>
+  {:else if typeof value === "object"}
     <div>
       {#each Object.entries(value) as [k, v]}
         <Self key={k} value={v} classes="mb-2 font-mono text-sm" />
