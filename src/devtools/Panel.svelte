@@ -94,18 +94,25 @@
               <div
                 class="grid grid-cols-[175px_1fr] p-2 border-b border-gray-800 font-mono text-sm"
               >
-                <span class="text-blue-300">Tag</span>
-                <span class="text-orange-300">{selectedComponent.tagName}</span>
-                <span class="text-blue-300">Attributes</span>
-                <span class="text-orange-300">
-                  <ul>
-                    {#each Object.entries(selectedComponent.attributes) as [key, value]}
-                      {#if key !== "x-data"}
-                        <li>{key}: "{value}"</li>
-                      {/if}
-                    {/each}
-                  </ul>
-                </span>
+                <div class="text-blue-300">Tag</div>
+                <div class="text-orange-300">{selectedComponent.tagName}</div>
+                {#if Object.entries(selectedComponent.attributes).length > 1}
+                  <div class="mt-2 text-blue-300">Attributes</div>
+                  <div class="mt-2">
+                    <ul>
+                      {#each Object.entries(selectedComponent.attributes) as [key, value]}
+                        {#if key !== "x-data"}
+                          <li class="flex items-center gap-3">
+                            <span class="text-blue-300 ">{key}</span>
+                            <span class="text-orange-300">
+                              "{value}"
+                            </span>
+                          </li>
+                        {/if}
+                      {/each}
+                    </ul>
+                  </div>
+                {/if}
               </div>
             </div>
 
