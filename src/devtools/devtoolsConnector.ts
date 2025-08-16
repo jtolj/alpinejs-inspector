@@ -2,7 +2,7 @@ import deepClone from "../utils/clone";
 import type { AlpineComponent, Message } from "../types";
 import beautify from "../utils/beautify";
 
-(function () {
+(function() {
   /**
    * Stores the current state of all components.
    */
@@ -94,7 +94,9 @@ import beautify from "../utils/beautify";
           return [attr.name, attr.value];
         })
       ),
-      state: deepClone(getAlpineDataInstance(element)),
+      state: deepClone(
+        getAlpineDataInstance(element)
+      ),
     };
   }
 

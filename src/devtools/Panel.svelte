@@ -103,7 +103,7 @@
                       {#each Object.entries(selectedComponent.attributes) as [key, value]}
                         {#if key !== "x-data"}
                           <li class="flex items-center gap-3">
-                            <span class="text-blue-300 ">{key}</span>
+                            <span class="text-blue-300">{key}</span>
                             <span class="text-orange-300">
                               "{value}"
                             </span>
