@@ -20,7 +20,7 @@ A Chrome DevTools extension for debugging Alpine.js V3 applications.
 
 1. See the [latest release](https://github.com/jtolj/alpinejs-inspector/releases/latest)
 2. Download alpinejs-inspector.zip
-3. Unzip and load the folder as an unpacked extension (see [instructions](https://developer.chrome.com/docs/extensions/get_started#unpacked))
+3. Unzip and load the folder as an unpacked extension (see [instructions](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked))
 
 ### From source
 
