@@ -8,9 +8,13 @@ export default function deepClone(obj: any): { [key: string]: any } {
     object: object | undefined,
     stack: any
   ): any => {
-    if (typeof value === "function") {
+    if (value instanceof HTMLElement) {
+      return (value.cloneNode() as HTMLElement).outerHTML;
+    }
+    else if (typeof value === "function") {
       return beautify(value.toString());
     }
+
     return undefined;
   };
 
